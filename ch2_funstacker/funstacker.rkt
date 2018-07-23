@@ -1,7 +1,9 @@
 #lang br/quicklang
 
+;Reader
 (define (read-syntax path port)
   (define src-lines (port->lines port))
+  ;src-datums is now just a plain list
   (define src-datums (format-datums '~a src-lines))
   (define module-datum `(module funstacker-mod "funstacker.rkt"
                           (handle-args ,@src-datums)))
